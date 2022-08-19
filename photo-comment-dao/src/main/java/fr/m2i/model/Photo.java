@@ -10,7 +10,7 @@ import java.util.List;
  * todo:
  * - Implémenter un constructeur sans arguments
  * - Implémenter les getter et les setter
- * - Implémenter equals() et hashCode() en se basant sur le champs {@link Book#isbn} (@EqualsAndHashCode)
+ * - Implémenter equals() et hashCode() en se basant sur le champs {@link Photo#id} (@EqualsAndHashCode)
  *
  * - Configurer l'entité JPA
  * - Specifier le nom de la table: "photo"

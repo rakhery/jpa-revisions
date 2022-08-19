@@ -14,7 +14,7 @@ import javax.persistence.*;
  * - Implémenter equals() et hashCode() en se basant sur le champs {@link Product#id} (@EqualsAndHashCode)
  * 
  * - Configurer l'entité JPA
- * - Spécifier le nom de la table: "company"
+ * - Spécifier le nom de la table: "product"
  * - Configurer un id auto généré
  * - Configure la colonne "name" pour la rendre obligatoire {@link Product#name}
  * 
