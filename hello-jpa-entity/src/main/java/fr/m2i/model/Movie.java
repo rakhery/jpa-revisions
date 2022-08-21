@@ -1,8 +1,11 @@
 package fr.m2i.model;
 
+import com.sun.istack.NotNull;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import javax.persistence.*;
 
 
 /**
@@ -17,12 +20,21 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
+@Entity
+@Table(name = "movie")
 public class Movie {
+    @Id
+    @Column(name = "id_cinema")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name="name",nullable = false)
     private String name;
 
+    @Column(name="director",nullable = false)
+    @NotNull
     private String director;
-
+    @Column(name = "duration")
+    @NotNull
     private Integer durationSeconds;
 }

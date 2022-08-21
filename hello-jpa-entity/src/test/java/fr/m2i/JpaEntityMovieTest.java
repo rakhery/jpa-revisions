@@ -119,7 +119,6 @@ public class JpaEntityMovieTest {
     public void testDurationColumnIsNullable() throws NoSuchFieldException {
         Field declaredField = Movie.class.getDeclaredField("durationSeconds");
         Column column = declaredField.getAnnotation(Column.class);
-
         assertThat(column.nullable(), is(true));
     }
 
