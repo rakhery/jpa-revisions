@@ -40,4 +40,18 @@ public class Account {
 
     @Column(name = "balance")
     private BigDecimal balance = BigDecimal.ZERO.setScale(2);
+    public void copy(Account accountData) {
+
+        if (accountData == null) {
+            return;
+        }
+
+        if (accountData.balance != null) {
+            this.balance = accountData.getBalance();
+        }
+        if(accountData.firstName==null){
+            this.firstName=accountData.getFirstName();
+        }
+
+    }
 }

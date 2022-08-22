@@ -25,10 +25,32 @@ import java.util.Set;
 @NoArgsConstructor
 @Getter
 @Setter
+@Entity
+@Table(name = "book")
 public class Book {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name="name",nullable = false)
     private String name;
+    @Column(name = "isbn",nullable = false)
     private String isbn;
-    private Set<Author> authors;
+    @ManyToMany(mappedBy = "books")
+    private Set<Author> authors=new HashSet<>();
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Book book = (Book) o;
+
+        return isbn.equals(book.isbn);
+    }
+
+    @Override
+    public int hashCode() {
+        return isbn.hashCode();
+    }
 }
 

@@ -46,10 +46,8 @@ class AccountDaoTest {
     @Test
     void testSaveAccount() {
         Account account = TestDataGenerator.generateAccount();
-
         accountDao.save(account);
         boolean saved = isSaved(account);
-
         assertThat(account.getId(), notNullValue());
         assertThat(saved, is(true));
 
@@ -92,9 +90,7 @@ class AccountDaoTest {
     void testFindAccountById() {
         Account account = TestDataGenerator.generateAccount();
         saveTestAccount(account);
-
         Account foundAccount = accountDao.findById(account.getId());
-
         assertEquals(account, foundAccount);
     }
 
@@ -102,9 +98,7 @@ class AccountDaoTest {
     void testFindAccountByEmail() {
         Account account = TestDataGenerator.generateAccount();
         saveTestAccount(account);
-
         Account foundAccount = accountDao.findByEmail(account.getEmail());
-
         assertEquals(account, foundAccount);
     }
 
@@ -112,9 +106,7 @@ class AccountDaoTest {
     void testFindAllAccounts() {
         List<Account> accounts = TestDataGenerator.generateAccountList(3);
         accounts.forEach(this::saveTestAccount);
-
         List<Account> foundAccounts = accountDao.findAll();
-
         assertThat(accounts, everyItem(isIn(foundAccounts)));
     }
 
@@ -122,11 +114,9 @@ class AccountDaoTest {
     void testUpdateAccount() {
         Account account = TestDataGenerator.generateAccount();
         saveTestAccount(account);
-
         account.setBalance(account.getBalance().add(BigDecimal.valueOf(1000).setScale(2, RoundingMode.HALF_UP)));
         accountDao.update(account);
         boolean balanceUpdated = isBalanceUpdated(account);
-
         assertThat(balanceUpdated, is(true));
     }
 
@@ -148,10 +138,8 @@ class AccountDaoTest {
     void testRemoveAccount() {
         Account account = TestDataGenerator.generateAccount();
         saveTestAccount(account);
-
         accountDao.remove(account);
         boolean saved = isSaved(account);
-
         assertThat(saved, is(false));
     }
 
@@ -172,10 +160,8 @@ class AccountDaoTest {
         try {
             Account account = TestDataGenerator.generateAccount();
             saveTestAccount(account);
-
             account.setFirstName(null);
             accountDao.update(account);
-
             fail("AccountDaoException should be thrown");
         } catch (Exception e) {
             assertEquals(AccountDaoException.class, e.getClass());

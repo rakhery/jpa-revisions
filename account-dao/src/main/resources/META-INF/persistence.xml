@@ -10,7 +10,7 @@
             <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/exercise_db" />
             <property name="hibernate.connection.user" value="cinema" />
             <property name="hibernate.connection.password" value="cinema" />
-            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL57Dialect" />
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect" />
             <property name="hibernate.hbm2ddl.auto" value="create" />
         </properties>
     </persistence-unit>
